@@ -11,10 +11,12 @@
             <div class="row">
             {% for book in books %}
 
-            <div class="col-lg-4">
 
-                <p> {{ book.title }}</p>
-                <img src="{{ book.thumbnailUrl }}" style="width: 200px; " class="mb-4">
+               <div class="col-lg-4 text-center">
+               <a href="/book/1" target="_blank">
+                <img src="{{ book.thumbnailUrl }}" style="width: 200px; " >
+                <p class="mb-4"> {{ book.title }}</p>
+               </a>
 
             </div>
 
