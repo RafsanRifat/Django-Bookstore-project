@@ -9,11 +9,13 @@
     <div class="container">
             <h1 class="text-center pb-5 pt-5 " >Book List</h1>
             <div class="row">
+
+
             {% for book in books %}
 
 
                <div class="col-lg-4 text-center">
-               <a href="/book/1" target="_blank">
+               <a href="/books/{{ book.id }}" target="_blank">
                 <img src="{{ book.thumbnailUrl }}" style="width: 200px; " >
                 <p class="mb-4"> {{ book.title }}</p>
                </a>

@@ -7,21 +7,9 @@
 </head>
 <body>
     <div class="container">
-            <h1 class="text-center pb-5 pt-5 " >Book List</h1>
-            <div class="row">
-            {% for book in books %}
+            <h1 class="text-center pb-5 pt-5 " >Title</h1>
+            <p>Short description : </p>
 
-
-               <div class="col-lg-4 text-center">
-               <a href="/book/1" target="_blank">
-                <img src="{{ book.thumbnailUrl }}" style="width: 200px; " >
-                <p class="mb-4"> {{ book.title }}</p>
-               </a>
-
-            </div>
-
-            {% endfor %}
-            </div>
     </div>
 
 
