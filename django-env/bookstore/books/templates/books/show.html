@@ -2,13 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Django Course</title>
+    <title>Book details</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
-            <h1 class="text-center pb-5 pt-5 " >Title</h1>
-            <p>Short description : </p>
+            <div class="row">
+                <div class="col-4">
+                    <img src="{{ book.thumbnailUrl }}" style="width: 200px; margin-top: 150px" >
+                </div>
+                <div class="col-8">
+                    <h2 class="text-center pb-5 pt-5 " >{{ book.title }}</h2>
+                    <h4>About</h4>
+                    <p>{{ book.shortDescription }}</p>
+                    <h4 class="mt-4">Pages</h4>
+                    <p>Total {{ book.pageCount }} pages</p>
+                    <h4 class="mt-4">Author</h4>
+                    <p>{{ book.authors }}</p>
+                    <h4 class="mt-4">Description</h4>
+                    <p>{{ book.longDescription }}</p>
+                </div>
+            </div>
 
     </div>
 

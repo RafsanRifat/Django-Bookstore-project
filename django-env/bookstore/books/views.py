@@ -16,5 +16,9 @@ def index(request):
 
 
 def show(request, id):
-    context = {'books': data}
+    singleBook =list()
+    for book in data:
+        if book['id'] == id:
+            singleBook = book
+    context = {'book': singleBook}
     return render(request, 'books/show.html', context)
