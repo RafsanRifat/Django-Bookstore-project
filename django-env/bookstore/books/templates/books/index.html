@@ -15,7 +15,7 @@
 
 
                <div class="col-lg-4 text-center">
-               <a href="/books/{{ book.id }}" target="_blank">
+               <a href="{% url 'book.show' book.id %}" target="_blank">
                 <img src="{{ book.thumbnailUrl }}" style="width: 200px; " >
                 <p class="mb-4"> {{ book.title }}</p>
                </a>

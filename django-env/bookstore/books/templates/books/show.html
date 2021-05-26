@@ -18,7 +18,7 @@
                     <h4 class="mt-4">Pages</h4>
                     <p>Total {{ book.pageCount }} pages</p>
                     <h4 class="mt-4">Author</h4>
-                    <p>{{ book.authors }}</p>
+                    <p>{{ book.authors|join:", " }}</p>
                     <h4 class="mt-4">Description</h4>
                     <p>{{ book.longDescription }}</p>
                 </div>
