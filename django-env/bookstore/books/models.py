@@ -10,4 +10,4 @@ class Book(models.Model):
     longDescription = models.TextField(null=True)
 
     def __str__(self):
-        return super().__str__()
+        return self.title
