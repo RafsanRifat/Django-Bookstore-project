@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
-from books.models import Book
+from books.models import Book, Review
 from django.http import Http404
 
 
@@ -29,5 +29,7 @@ def show(request, id):
     return render(request, 'books/show.html', context)
 
 def review(request):
-    review = request.POST['review']
-    return redirect('/book')
+    body = request.POST['review']
+    newReview = Review(body = body)
+    newReview.save()
+    return redirect('/books')
