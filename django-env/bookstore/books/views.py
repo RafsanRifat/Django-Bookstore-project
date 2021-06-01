@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from books.models import Book
 from django.http import Http404
 
@@ -27,3 +27,7 @@ def show(request, id):
     singleBook = get_object_or_404(Book, pk=id)  # we can use this shortcut if we don't want to use the above method
     context = {'book' : singleBook}
     return render(request, 'books/show.html', context)
+
+def review(request):
+    review = request.POST['review']
+    return redirect('/book')
