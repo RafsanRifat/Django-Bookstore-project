@@ -1,8 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from books.models import Book
 from django.http import Http404
-from django.shortcuts import get_object_or_404
+
 
 
 
@@ -17,9 +17,13 @@ def index(request):
 
 
 def show(request, id):
-    try:
-        singleBook = Book.objects.get(pk=id)
-    except Book.DoesNotExist:
-        raise Http404("The Book you are searcing for is not exist")
-    context = {'book': singleBook}
+    """    try:
+           singleBook = Book.objects.get(pk=id)
+       except Book.DoesNotExist:
+           raise Http404("The Book you are searcing for is not exist")
+       context = {'book': singleBook}
+       return render(request, 'books/show.html', context)
+    """
+    singleBook = get_object_or_404(Book, pk=id)  # we can use this shortcut if we don't want to use the above method
+    context = {'book' : singleBook}
     return render(request, 'books/show.html', context)
