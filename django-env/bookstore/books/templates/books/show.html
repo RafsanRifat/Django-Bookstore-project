@@ -25,7 +25,8 @@
                     <form method="post" action="{% url 'book.review' %}">
                         {% csrf_token %}
                         <textarea  name="review" rows="5" class="form-control mt-5 mb-4" placeholder="Write your review here"></textarea>
-                        <button type="submit" class="btn btn-info btn-lg btn-block mb-5">Submit</button>
+                        <button type="submit" class="btn btn-secondary btn-lg btn-block mb-5">Submit</button>
+                        <input type="text">
                     </form>
                 </div>
             </div>
