@@ -22,12 +22,18 @@
                     <h4 class="mt-4">Description</h4>
                     <p>{{ book.longDescription }}</p>
 
-                    <form method="post" action="{% url 'book.review' %}">
+
+                    <form method="post" action="{% url 'book.review' book.id %}">
                         {% csrf_token %}
                         <textarea  name="review" rows="5" class="form-control mt-5 mb-4" placeholder="Write your review here"></textarea>
                         <button type="submit" class="btn btn-secondary btn-lg btn-block mb-5">Submit</button>
-                        <input type="text">
                     </form>
+
+                    <div class="mt-5">
+                        {% for review in reviews %}
+                            <p>{{ review.body }}</p>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
 
