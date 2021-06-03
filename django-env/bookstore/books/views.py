@@ -25,7 +25,7 @@ def show(request, id):
        return render(request, 'books/show.html', context)
     """
     singleBook = get_object_or_404(Book, pk=id)  # we can use this shortcut if we don't want to use the above method
-    reviews = Review.objects.all()
+    reviews = Review.objects.order_by('id')
     context = {'book' : singleBook, 'reviews': reviews}
     return render(request, 'books/show.html', context)
 
