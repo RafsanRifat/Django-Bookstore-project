@@ -25,15 +25,15 @@ def show(request, id):
        return render(request, 'books/show.html', context)
     """
     singleBook = get_object_or_404(Book, pk=id)  # we can use this shortcut if we don't want to use the above method
-    reviews = Review.objects.order_by('-created_at')
+    reviews = Review.objects.filter(book_id=id).order_by('-created_at')
     context = {'book' : singleBook, 'reviews': reviews}
     return render(request, 'books/show.html', context)
 
 def reviews(request, id):
-    book = get_object_or_404(Book, id=id)
+    # book = get_object_or_404(Book, id=id)
     body = request.POST['review']
 
-    newReview = Review(body=body)
+    newReview = Review(body=body, book_id= id)
     newReview.save()
 
     return redirect('/books')
