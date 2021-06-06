@@ -33,7 +33,7 @@ def reviews(request, id):
     book = get_object_or_404(Book, id=id)
     body = request.POST['review']
 
-    newReview = Review(body=body, book=book)
+    newReview = Review(body=body)
     newReview.save()
 
-    return redirect('/books/{book_id}'.format(book_id=id))
+    return redirect('/books')
