@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from books.models import Book, Review
 from django.http import Http404
+from django.views.generic import ListView
 
 
 
@@ -9,11 +10,17 @@ from django.http import Http404
 
 
 # Create your views here.
-def index(request):
+"""def index(request):
     # return HttpResponse('Hello Books App')  eita savabik khetre. r templates er somoy return render use korte hobe, eita shortcut.
     dbData = Book.objects.all()
     context = {'books': dbData}
-    return render(request, 'books/index.html', context)
+    return render(request, 'books/book_list.html', context)"""
+
+# we can do this like bellow ----->>>
+
+class BookListView(ListView):
+    def get_queryset(self):
+        return Book.objects.all()
 
 
 def show(request, id):
