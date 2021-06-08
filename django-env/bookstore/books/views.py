@@ -23,7 +23,7 @@ class BookListView(ListView):
         return Book.objects.all()
 
 
-def show(request, id):
+# def show(request, id):
     """    try:
            singleBook = Book.objects.get(pk=id)
        except Book.DoesNotExist:
