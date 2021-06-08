@@ -36,6 +36,9 @@ def show(request, id):
     context = {'book' : singleBook, 'reviews': reviews}
     return render(request, 'books/show.html', context)
 
+class BookDetailView(DetailView):
+    template_name = "TEMPLATE_NAME"
+
 def reviews(request, id):
     # book = get_object_or_404(Book, id=id)
     body = request.POST['review']
