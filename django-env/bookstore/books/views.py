@@ -37,7 +37,7 @@ def show(request, id):
     return render(request, 'books/show.html', context)
 
 class BookDetailView(DetailView):
-    pass
+    model = Book
 
 
 def reviews(request, id):
