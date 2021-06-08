@@ -31,10 +31,11 @@ def show(request, id):
        context = {'book': singleBook}
        return render(request, 'books/book_detail.html', context)
     """
-    singleBook = get_object_or_404(Book, pk=id)  # we can use this shortcut if we don't want to use the above method
+"""    singleBook = get_object_or_404(Book, pk=id)  # we can use this shortcut if we don't want to use the above method
     reviews = Review.objects.filter(book_id=id).order_by('-created_at')
     context = {'book' : singleBook, 'reviews': reviews}
-    return render(request, 'books/book_detail.html', context)
+    return render(request, 'books/book_detail.html', context)"""
+# we CAN DO this like below:
 
 class BookDetailView(DetailView):
     model = Book
