@@ -37,7 +37,8 @@ def show(request, id):
     return render(request, 'books/show.html', context)
 
 class BookDetailView(DetailView):
-    template_name = "TEMPLATE_NAME"
+    pass
+
 
 def reviews(request, id):
     # book = get_object_or_404(Book, id=id)
