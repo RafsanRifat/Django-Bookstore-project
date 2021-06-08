@@ -29,12 +29,12 @@ def show(request, id):
        except Book.DoesNotExist:
            raise Http404("The Book you are searcing for is not exist")
        context = {'book': singleBook}
-       return render(request, 'books/show.html', context)
+       return render(request, 'books/book_detail.html', context)
     """
     singleBook = get_object_or_404(Book, pk=id)  # we can use this shortcut if we don't want to use the above method
     reviews = Review.objects.filter(book_id=id).order_by('-created_at')
     context = {'book' : singleBook, 'reviews': reviews}
-    return render(request, 'books/show.html', context)
+    return render(request, 'books/book_detail.html', context)
 
 class BookDetailView(DetailView):
     model = Book
