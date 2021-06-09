@@ -30,7 +30,7 @@
                     </form>
 
                     <div class="mt-5">
-                        {% for review in reviews %}
+                        {% for review in book.review_set.all %}
                             <p>{{ review.body }}</p>
                         {% endfor %}
                     </div>
