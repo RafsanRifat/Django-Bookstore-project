@@ -9,5 +9,6 @@ urlpatterns = [
                                                 # 3rd argument hisebe name use kora jay. name hisebe jekono kichu, jekono
                                                 # formatei use kora jay. eikhane emnitei book.show eivabe use koresi.
                                                 # "book-show, show_page, pageShow.  eirokom jekono vabei use kora jeto"
-    path('<int:id>/reviews', views.reviews, name='book.review')
+    path('<int:id>/reviews', views.reviews, name='book.review'),
+    path('<str:author>', views.author, name="author.books")
 ]

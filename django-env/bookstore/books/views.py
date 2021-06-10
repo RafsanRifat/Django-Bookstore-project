@@ -47,6 +47,12 @@ class BookDetailView(DetailView):
         return context
 
 
+def author(request, author):
+    books = Book.objects.filter(authors__name=author)
+    context = {'book_list': books}
+    return render(request, 'books/book_list.html', context)
+
+
 def reviews(request, id):
     # book = get_object_or_404(Book, id=id)
     body = request.POST['review']
