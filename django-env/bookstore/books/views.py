@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from books.models import Book, Review
 from django.http import Http404
 from django.views.generic import ListView,DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 
@@ -18,7 +19,7 @@ from django.views.generic import ListView,DetailView
 
 # we can do this like bellow ----->>>
 
-class BookListView(ListView):
+class BookListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return Book.objects.all()
 
@@ -37,7 +38,7 @@ class BookListView(ListView):
     return render(request, 'books/book_detail.html', context)"""
 # we CAN DO this like below:
 
-class BookDetailView(DetailView):
+class BookDetailView(LoginRequiredMixin,DetailView):
     model = Book
 
     def get_context_data(self, **kwargs):
