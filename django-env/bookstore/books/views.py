@@ -56,8 +56,6 @@ def author(request, author):
 def reviews(request, id):
     # book = get_object_or_404(Book, id=id)
     body = request.POST['review']
-
     newReview = Review(body=body, book_id= id)
     newReview.save()
-
     return redirect('/books')
